@@ -6,6 +6,8 @@ const path = require("path");
 const foodsRouter = require("./routes/api/foods");
 const ordersRouter = require("./routes/api/orders");
 const couponsRouter = require("./routes/api/coupons");
+const shopsRouter = require("./routes/api/shops");
+
 const { errorHandler } = require("./helpers/apiHelper");
 const FILE_DIR_AVATARS = path.resolve("./public/images/");
 
@@ -20,6 +22,7 @@ app.use("/api", express.static(FILE_DIR_AVATARS));
 app.use("/api/foods", foodsRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/coupons", couponsRouter);
+app.use("/api/shops", shopsRouter);
 
 app.use(errorHandler);
 

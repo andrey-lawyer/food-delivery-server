@@ -28,7 +28,14 @@ const addCouponValidation = (req, res, next) => {
   const schema = Joi.object({
     discount: Joi.number().required(),
     image: Joi.string().required(),
-    
+  });
+  toValidation(schema, req, next);
+  next();
+};
+
+const addShopValidation = (req, res, next) => {
+  const schema = Joi.object({
+    nameShop: Joi.string().min(3).max(30).required(),
   });
   toValidation(schema, req, next);
   next();
@@ -66,4 +73,5 @@ module.exports = {
   addFoodValidation,
   addOrderValidation,
   addCouponValidation,
+  addShopValidation,
 };
